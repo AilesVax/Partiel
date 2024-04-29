@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <SDL.h> 
 #include <stdbool.h>
+#include <time.h>
 #include "main.h"
 #include "fonction.h"
 
@@ -9,6 +10,7 @@ int main(int argc, char* argv[]) {
     struct SDL valeurs = init();
     SDL_Window* window = valeurs.window;
     SDL_Renderer* renderer = valeurs.renderer;
+    srand(time(NULL));
     int n = rand() % 300;
     int a = rand() % 200;
 
@@ -22,7 +24,7 @@ int main(int argc, char* argv[]) {
         handle(&snakeRect, &quit, &direction);
     }
 
-    // Libérer la mémoire et quitter SDL
+    // Libï¿½rer la mï¿½moire et quitter SDL
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     SDL_Quit();
